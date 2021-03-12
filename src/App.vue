@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <!-- 头部组件 -->
-    <top/>
+    <top />
     <!-- 主体组件 -->
-    <index/>
+    <index />
   </div>
 </template>
 
@@ -23,4 +23,23 @@ export default {
   },
 };
 </script>
-<style lang="less"></style>
+<style lang="less">
+#app {
+  height: 100%;
+  .top-container {
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+  .index-container {
+    height: 100%;
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #dd6d60;
+  }
+}
+</style>

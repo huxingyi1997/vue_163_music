@@ -39,35 +39,79 @@ export default {
 };
 </script>
 
-
-// export default {
-//   data() {
-//     return {
-//       inputValue: "",
-//     };
-//   },
-//   methods: {
-//     toSearch() {
-//       // 如果为空 提示
-//       if (this.inputValue == "") {
-//         alert("请输入内容");
-//       } else {
-//         // 否则跳转页面
-//         // this.$router.push('/result')
-//         // 携带数据
-//         // this.$router.push("/result?q=" + this.inputValue);
-//         this.$router.push(`/result?q=${this.inputValue}`);
-//       }
-//     },
-//   },
-// };
-//
-<style lang="less">
-// .top {
-//   // 开启弹性布局
-//   display: flex;
-//   // 纵向居中
-//   align-items: center;
-//   background: #f9f9f9;
-// }
+// export default { // data() { // return { // inputValue: "", // }; // }, //
+methods: { // toSearch() { // // 如果为空 提示 // if (this.inputValue == "") {
+// alert("请输入内容"); // } else { // // 否则跳转页面 // //
+this.$router.push('/result') // // 携带数据 // // this.$router.push("/result?q="
++ this.inputValue); // this.$router.push(`/result?q=${this.inputValue}`); // }
+// }, // }, // }; //
+<style lang="less" scope>
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #f9f9f9;
+  width: 100%;
+  .left-box {
+    display: flex;
+    .icon-wrapper {
+      display: flex;
+      align-items: center;
+      margin-right: 80px;
+      .iconfont {
+        margin-right: 10px;
+        font-size: 16px;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        text-align: center;
+        line-height: 20px;
+      }
+      .iconfont::before {
+        opacity: 0;
+        transition: 0.2s;
+      }
+      .iconfont:hover::before {
+        opacity: 1;
+      }
+      .iconfont.icon-home {
+        background-color: #dd6d60;
+        border-radius: 50%;
+      }
+      .iconfont.icon-sami-select {
+        background-color: #dcc060;
+        border-radius: 50%;
+      }
+      .iconfont.icon-full-screen {
+        background-color: #84bb58;
+        border-radius: 50%;
+      }
+    }
+  }
+  .history-wrapper {
+    display: flex;
+    align-items: center;
+    .iconfont {
+      width: 35px;
+      height: 35px;
+      font-size: 30px;
+      text-align: center;
+      line-height: 35px;
+      color: gray;
+      border-radius: 50%;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .iconfont:first-child {
+      margin-right: 10px;
+    }
+    .iconfont:hover {
+      background-color: #ebebeb;
+    }
+  }
+  .right-box {
+    display: flex;
+    align-items: center;
+  }
+}
 </style>
