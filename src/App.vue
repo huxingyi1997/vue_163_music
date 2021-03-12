@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div id="app">
     <!-- 头部组件 -->
-    <top></top>
+    <top/>
     <!-- 主体组件 -->
-    <index></index>
+    <index/>
   </div>
 </template>
 
@@ -23,56 +23,4 @@ export default {
   },
 };
 </script>
-<style lang="less">
-html,
-body,
-ol,
-ul,
-li,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-th,
-td,
-dl,
-dd,
-form,
-fieldset,
-legend,
-input,
-textarea,
-select {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol,
-li {
-  list-style: none;
-}
-strong {
-  font-weight: normal;
-}
-i,
-em {
-  font-style: normal;
-}
-a,
-u {
-  text-decoration: none;
-}
-img {
-  border: 0;
-  display: block;
-}
-input,
-fieldset {
-  outline: none;
-  border: 0;
-}
-</style>
+<style lang="less"></style>
