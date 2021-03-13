@@ -1,7 +1,9 @@
 // 导入axios
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://catbk.cn:3000'
+axios.defaults.baseURL = 'https://autumnfish.cn'
+// axios.defaults.baseURL = 'http://catbk.cn:3000'
+
 axios.defaults.withCredentials = true
 axios.defaults.crossDomain = true
 

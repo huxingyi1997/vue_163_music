@@ -116,6 +116,7 @@ export default {
     //   this.banners = res.data.banners;
     // });
     getBanner().then((res) => {
+      // console.log(res);
       this.banners = res.banners;
     });
 
@@ -132,6 +133,7 @@ export default {
     //   this.playList = res.data.result;
     // });
     getPlaylist().then((res) => {
+      // console.log(res);
       this.playList = res.result;
     });
 
@@ -145,6 +147,7 @@ export default {
     //   this.newSongs = res.data.result;
     // });
     getNewSongs().then((res) => {
+      // console.log(res);
       this.newSongs = res.result;
     });
 
@@ -158,6 +161,7 @@ export default {
     //   this.mvs = res.data.result;
     // });
     getMv().then((res) => {
+      // console.log(res);
       this.mvs = res.result;
     });
   },
@@ -181,6 +185,7 @@ export default {
       getSongUrl({
         id// id: id,
       }).then((res) => {
+        // console.log(res);
         this.$parent.musicUrl = res.data[0].url;
       });
     },
