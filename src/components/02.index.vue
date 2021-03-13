@@ -61,40 +61,8 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-// .index {
-//   // 设置父组件弹性布局
-//   display: flex;
-//   height: 830px;
-// }
-// .index .nav {
-//   background-color: #ededed;
-//   width: 200px;
-//   height: 100%;
-// }
-// .index .nav li {
-//   text-align: center;
-//   margin: 10px;
-// }
-// .main {
-//   background-color: orange;
-//   // 使用剩余的尺寸
-//   flex: 1;
-// }
-// // 设计高亮的效果
-// a.router-link-active {
-//   color: white;
-//   background-color: orange;
-// }
-// .player {
-//   background: #f1f3f4;
-//   height: 60px;
-//   position: fixed;
-//   bottom: 0;
-//   left: 0;
-//   width: 100%;
-// }
-
 .index-container {
+  // 设置父组件弹性布局
   display: flex;
   .nav {
     background-color: #ededed;
@@ -117,6 +85,7 @@ export default {
         width: 100%;
         height: 100%;
       }
+      // 设计高亮的效果
       a.router-link-active {
         color: #dd6d60;
       }
@@ -126,6 +95,7 @@ export default {
     }
   }
   .main {
+    // 使用剩余的尺寸
     flex: 1;
     overflow-y: scroll;
     padding: 10px 20px;

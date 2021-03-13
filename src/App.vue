@@ -9,9 +9,9 @@
 
 <script>
 // 导入头部组件
-import top from "./components/01.top.vue";
+import top from "@/components/01.top.vue";
 // 导入主体组件
-import index from "./components/02.index.vue";
+import index from "@/components/02.index.vue";
 export default {
   name: "app",
   // 注册组件

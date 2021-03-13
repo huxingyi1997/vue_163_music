@@ -24,10 +24,6 @@ ol {
   list-style: none;
 }
 
-.iconfont {
-  cursor: pointer;
-}
-
 .el-tabs__active-bar {
   background-color: #c3473a;
 }

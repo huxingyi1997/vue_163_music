@@ -6,13 +6,13 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 // 导入需要的路由管理组件
-import discovery from "../views/01.discovery.vue";
-import playlists from "../views/02.playlists.vue";
-import songs from "../views/03.songs.vue";
-import mvs from "../views/04.mvs.vue";
-import result from "../views/05.result.vue";
-import playlist from "../views/06.playlist.vue";
-import mv from "../views/07.mv.vue";
+import discovery from "@/views/01.discovery.vue";
+import playlists from "@/views/02.playlists.vue";
+import songs from "@/views/03.songs.vue";
+import mvs from "@/views/04.mvs.vue";
+import result from "@/views/05.result.vue";
+import playlist from "@/views/06.playlist.vue";
+import mv from "@/views/07.mv.vue";
 
 // 创建路由
 const routes = [

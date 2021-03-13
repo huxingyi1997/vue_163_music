@@ -82,8 +82,14 @@
   </div>
 </template>
 <script>
-// 导入axios
-import axios from "axios";
+// 导入异步函数
+import {
+  getBanner,
+  getPlaylist,
+  getNewSongs,
+  getMv,
+  getSongUrl,
+} from "@/api/01.discovery.js";
 export default {
   name: "discovery",
   data() {
@@ -101,64 +107,81 @@ export default {
   created() {
     // console.log('created');
     // 轮播图接口
-    axios({
-      url: "https://api.mtnhao.com/banner",
-      method: "get",
-      params: {},
-    }).then((res) => {
-      // console.log(res);
-      this.banners = res.data.banners;
+    // axios({
+    //   url: "https://api.mtnhao.com/banner",
+    //   method: "get",
+    //   params: {},
+    // }).then((res) => {
+    //   // console.log(res);
+    //   this.banners = res.data.banners;
+    // });
+    getBanner().then((res) => {
+      this.banners = res.banners;
     });
 
     // 推荐歌单
-    axios({
-      url: "https://api.mtnhao.com/personalized",
-      method: "get",
-      params: {
-        // 获取的数据量
-        limit: 10,
-      },
-    }).then((res) => {
-      // console.log(res);
-      this.playList = res.data.result;
+    // axios({
+    //   url: "https://api.mtnhao.com/personalized",
+    //   method: "get",
+    //   params: {
+    //     // 获取的数据量
+    //     limit: 10,
+    //   },
+    // }).then((res) => {
+    //   // console.log(res);
+    //   this.playList = res.data.result;
+    // });
+    getPlaylist().then((res) => {
+      this.playList = res.result;
     });
 
     // 最新音乐
-    axios({
-      url: "https://api.mtnhao.com/personalized/newsong",
-      method: "get",
-      params: {},
-    }).then((res) => {
-      // console.log(res);
-      this.newSongs = res.data.result;
+    // axios({
+    //   url: "https://api.mtnhao.com/personalized/newsong",
+    //   method: "get",
+    //   params: {},
+    // }).then((res) => {
+    //   // console.log(res);
+    //   this.newSongs = res.data.result;
+    // });
+    getNewSongs().then((res) => {
+      this.newSongs = res.result;
     });
 
     // 最新mv
-    axios({
-      url: "https://api.mtnhao.com/personalized/mv",
-      method: "get",
-      params: {},
-    }).then((res) => {
-      // console.log(res)
-      this.mvs = res.data.result;
+    // axios({
+    //   url: "https://api.mtnhao.com/personalized/mv",
+    //   method: "get",
+    //   params: {},
+    // }).then((res) => {
+    //   // console.log(res)
+    //   this.mvs = res.data.result;
+    // });
+    getMv().then((res) => {
+      this.mvs = res.result;
     });
   },
   methods: {
     playMusic(id) {
       //   console.log(id);
-      axios({
-        url: "https://api.mtnhao.com/song/url",
-        method: "get",
-        params: {
-          id, // id: id
-        },
+      //   axios({
+      //     url: "https://api.mtnhao.com/song/url",
+      //     method: "get",
+      //     params: {
+      //       id, // id: id
+      //     },
+      //   }).then((res) => {
+      //     // console.log(res);
+      //     let url = res.data.data[0].url;
+      //     // 父节点的音乐地址
+      //     // console.log(this.$parent.musicUrl);
+      //     // 设置父组件的播放地址
+      //     this.$parent.musicUrl = url;
+      //   });
+      getSongUrl({
+        id// id: id,
       }).then((res) => {
-        // console.log(res);
-        let url = res.data.data[0].url;
-        // 父节点的音乐地址
-        // console.log(this.$parent.musicUrl);
-        // 设置父组件的播放地址
-        this.$parent.musicUrl = url;
+        this.$parent.musicUrl = res.data[0].url;
       });
     },
   },
