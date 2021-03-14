@@ -186,6 +186,7 @@ export default {
         id// id: id,
       }).then((res) => {
         // console.log(res);
+        // 直接获取父组件，可以修改任意的值
         this.$parent.musicUrl = res.data[0].url;
       });
     },
