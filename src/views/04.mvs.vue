@@ -69,7 +69,9 @@
           </div>
         </div>
       </div>
-      <!-- 分页器 -->
+    </div>
+
+     <!-- 分页器 -->
       <el-pagination
         @current-change="handleCurrentChange"
         background
@@ -79,7 +81,6 @@
         :page-size="limit"
       >
       </el-pagination>
-    </div>
   </div>
 </template>
 <script>
@@ -165,6 +166,8 @@ export default {
 <style lang="less" scoped>
 .mvs-container {
   padding-top: 20px;
+  padding-bottom: 20px;
+  height: 100%;
   .filter-wrap > div {
     margin-bottom: 30px;
     vertical-align: baseline;
@@ -195,7 +198,9 @@ export default {
       }
     }
   }
-  .mvs .items {
+  .mvs {
+    height: 440px;
+    .items {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -239,6 +244,11 @@ export default {
         }
       }
     }
+  }
+  }
+  .el-pagination {
+    margin-top: 100px;
+    text-align: center;
   }
 }
 </style>

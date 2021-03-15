@@ -14,14 +14,17 @@
     </div>
     <div class="right-box">
       <div class="el-input el-input--small el-input--prefix">
+        <!-- 搜索框 -->
         <input
           type="text"
           autocomplete="off"
           placeholder="搜索"
+          v-model="inputValue"
+          @keyup.enter="toResult"
           class="el-input__inner"
         />
         <span class="el-input__prefix">
-          <i class="el-input__icon el-icon-search"></i>
+          <i class="el-input__icon el-icon-search" @click="toResult"></i>
         </span>
       </div>
     </div>
@@ -33,8 +36,21 @@ export default {
   name: "top",
   data() {
     return {
-      query: "",
+      // 输入的内容
+      inputValue: "",
     };
+  },
+  methods: {
+    toResult() {
+      // 非空判断
+      if (this.inputValue == "") {
+        // 提示用户
+        this.$message.warning("请输入内容");
+      } else {
+        // 去搜索页面，携带数据
+        this.$router.push(`result?keywords=${this.inputValue}`);
+      }
+    },
   },
 };
 </script>
@@ -112,6 +128,14 @@ this.$router.push('/result') // // 携带数据 // // this.$router.push("/result
   .right-box {
     display: flex;
     align-items: center;
+    .el-input {
+      position: relative;
+      .el-input__prefix {
+        position: absolute;
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
   }
 }
 </style>
