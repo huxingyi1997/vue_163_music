@@ -137,7 +137,7 @@ export default {
       getPlaylist({
         // 分类数据
         cat: this.cat,
-        // 起始的值 （页面-1） * 每页多少条数据
+        // 偏移值起始的值 （页面-1） * 每页多少条数据
         offset: (this.pageNum - 1) * 10,
       }).then((res) => {
         // console.log(res);

@@ -28,6 +28,13 @@ Vue.filter("formatDuration", (dt) => {
   return min + ":" + sec;
 });
 
+// 创建过滤器将播放量过滤为——万
+Vue.filter('playNumFormat', function (playCount) {
+  if (playCount > 100000) {
+    return parseInt(playCount / 10000) + '万'
+  }
+  return playCount
+})
 new Vue({
   // 将路由挂载到Vue实例上
   router, // router：router
