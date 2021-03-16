@@ -29,12 +29,27 @@ Vue.filter("formatDuration", (dt) => {
 });
 
 // 创建过滤器将播放量过滤为——万
-Vue.filter('playNumFormat', function (playCount) {
+Vue.filter("playNumFormat", function(playCount) {
   if (playCount > 100000) {
-    return parseInt(playCount / 10000) + '万'
+    return parseInt(playCount / 10000) + "万";
   }
-  return playCount
-})
+  return playCount;
+});
+
+// 将时间转换为年月日时分秒
+Vue.filter("dateFormat", function(originVal) {
+  const dt = new Date(originVal);
+
+  const y = dt.getFullYear();
+  const m = (dt.getMonth() + 1 + "").padStart(2, "0");
+  const d = (dt.getDate() + "").padStart(2, "0");
+
+  const hh = (dt.getHours() + "").padStart(2, "0");
+  const mm = (dt.getMinutes() + "").padStart(2, "0");
+  const ss = (dt.getSeconds() + "").padStart(2, "0");
+
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+});
 new Vue({
   // 将路由挂载到Vue实例上
   router, // router：router

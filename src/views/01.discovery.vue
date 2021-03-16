@@ -16,7 +16,7 @@
         推荐歌单
       </h3>
       <div class="items">
-        <div class="item" v-for="(item, index) in playList" :key="index">
+        <div class="item" v-for="(item, index) in playList" :key="index" @click="toPlaylist(item.id)">
           <div class="img-wrap">
             <div class="desc-wrap">
               <span class="desc">{{ item.copywriter }}</span>
@@ -190,6 +190,12 @@ export default {
         this.$parent.musicUrl = res.data[0].url;
       });
     },
+    // 去歌单详情页
+    toPlaylist(id) {
+      // 跳转并携带数据
+      // console.log(id);
+      this.$router.push(`/playlist?id=${id}`);
+    }
   },
 };
 </script>

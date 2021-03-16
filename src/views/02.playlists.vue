@@ -123,6 +123,12 @@ export default {
     playMusic(id) {
       console.log(id);
     },
+    // 去歌单详情页
+    toPlaylist(id) {
+      // 跳转并携带数据
+      // console.log(id);
+      this.$router.push(`/playlist?id=${id}`);
+    },
     getData() {
       // 顶部的精品歌单
       getTopPlaylist({

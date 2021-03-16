@@ -229,8 +229,11 @@ export default {
     toMv(id) {
       console.log(id);
     },
+    // 去歌单详情页
     toPlaylist(id) {
-      console.log(id);
+      // 跳转并携带数据
+      // console.log(id);
+      this.$router.push(`/playlist?id=${id}`);
     },
     // 播放歌曲
     playMusic(id) {
