@@ -60,7 +60,8 @@
     <div class="mvs">
       <h3 class="title">最新MV</h3>
       <div class="items">
-        <div class="item" v-for="(item, index) in mvs" :key="index">
+        <div class="item" v-for="(item, index) in mvs" :key="index" @click="toMv(item.id)"
+        >
           <div class="img-wrap">
             <img :src="item.picUrl + '?param=250y150'" alt="" />
             <span class="iconfont icon-play"></span>
@@ -195,6 +196,10 @@ export default {
       // 跳转并携带数据
       // console.log(id);
       this.$router.push(`/playlist?id=${id}`);
+    },
+    // 去MV详情页
+    toMv(id) {
+      this.$router.push(`/mv?id=${id}`)
     }
   },
 };

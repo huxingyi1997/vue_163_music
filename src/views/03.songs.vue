@@ -103,9 +103,10 @@ export default {
         this.$parent.musicUrl = res.data[0].url;
       });
     },
+    // 去MV详情页
     toMv(id) {
-      console.log(id);
-    },
+      this.$router.push(`/mv?id=${id}`)
+    }
   },
 };
 </script>

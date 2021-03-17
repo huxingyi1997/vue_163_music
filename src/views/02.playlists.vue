@@ -120,9 +120,6 @@ export default {
     this.getData();
   },
   methods: {
-    playMusic(id) {
-      console.log(id);
-    },
     // 去歌单详情页
     toPlaylist(id) {
       // 跳转并携带数据

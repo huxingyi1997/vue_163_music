@@ -226,8 +226,9 @@ export default {
       this.pageNum = val;
       this.getData();
     },
+    // 去MV详情页
     toMv(id) {
-      console.log(id);
+      this.$router.push(`/mv?id=${id}`)
     },
     // 去歌单详情页
     toPlaylist(id) {
