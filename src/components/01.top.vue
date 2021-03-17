@@ -3,13 +3,16 @@
   <div class="top-container">
     <div class="left-box">
       <div class="icon-wrapper">
-        <span class="iconfont icon-home"></span>
-        <span class="iconfont icon-sami-select"></span>
-        <span class="iconfont icon-full-screen"></span>
+        <span class="iconfont icon-home" @click="toHomeClick"></span>
+        <span
+          class="iconfont"
+          :class="isFullScreen ? 'icon-sami-select' : 'icon-full-screen'"
+          @click="toggleFullscreen"
+        ></span>
       </div>
       <div class="history-wrapper">
-        <span class="iconfont icon-arrow-lift"></span>
-        <span class="iconfont icon-arrow-right"></span>
+        <span class="iconfont icon-arrow-lift" @click="$router.go(-1)"></span>
+        <span class="iconfont icon-arrow-right" @click="$router.go(1)"></span>
       </div>
     </div>
     <div class="right-box">
@@ -32,12 +35,15 @@
 </template>
 
 <script>
+import screenfull from "screenfull";
 export default {
   name: "top",
   data() {
     return {
       // 输入的内容
       inputValue: "",
+      // 是否全屏
+      isFullScreen: false,
     };
   },
   methods: {
@@ -51,6 +57,31 @@ export default {
         this.$router.push(`result?keywords=${this.inputValue}`);
       }
     },
+    toHomeClick() {
+      if ("/discovery" === this.$route.path) {
+        return;
+      }
+      this.$router.push(`/discovery`);
+    },
+    toggleFullscreen() {
+      if (!screenfull.isEnabled) {
+        //判断一下浏览器是否支持全屏显示
+        this.$message({
+          message: "浏览器不能全屏",
+          type: "warning",
+        });
+        return false;
+      }
+      screenfull.toggle();
+      // this.isScreenFull = screenfull.isFullscreen;
+      // console.log(screenfull.isFullscreen);
+    },
+  },
+  mounted() {
+    // 监听窗口大小改变，screenfull.isFullscreen的值为是否全屏，若是则true，反之false
+    window.onresize = () => {
+      this.isFullScreen = screenfull.isFullscreen;
+    };
   },
 };
 </script>
@@ -82,6 +113,7 @@ this.$router.push('/result') // // 携带数据 // // this.$router.push("/result
         display: inline-block;
         text-align: center;
         line-height: 20px;
+        cursor: pointer;
       }
       .iconfont::before {
         opacity: 0;

@@ -2,6 +2,12 @@ import Vue from "vue";
 // 导入路由 vue-router
 import VueRouter from "vue-router";
 
+// 解决点击重复路由报错问题
+const originalPush = VueRouter.prototype.push
+   VueRouter.prototype.push = function push(location) {
+   return originalPush.call(this, location).catch(err => err)
+}
+
 // 使用路由 vue-router
 Vue.use(VueRouter);
 

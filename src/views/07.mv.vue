@@ -109,7 +109,7 @@
             class="item"
             v-for="(item, index) in simiMvs"
             :key="index"
-            @click="toMv(item.id)"
+            @click="playMv(item.id)"
           >
             <div class="img-wrap">
               <img :src="item.cover + '?param=250y150'" alt="" />
@@ -210,9 +210,11 @@ export default {
         });
       });
     },
-    // 去别的MV详情页
-    toMv(id) {
-      this.$router.push(`/mv?id=${id}`);
+    // 播放别的MV
+    playMv(id){
+      this.pageNum = 1
+      this.id = id;
+    this.getData();
     },
     // 页面改事件
     handleCurrentChange(val) {
