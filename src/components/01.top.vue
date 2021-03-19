@@ -3,16 +3,28 @@
   <div class="top-container">
     <div class="left-box">
       <div class="icon-wrapper">
-        <span class="iconfont icon-home" @click="toHomeClick"></span>
-        <span
-          class="iconfont"
-          :class="isFullScreen ? 'icon-sami-select' : 'icon-full-screen'"
-          @click="toggleFullscreen"
-        ></span>
+        <el-tooltip content="回到主页" :enterable="false" placement="bottom">
+          <span class="iconfont icon-home" @click="toHomeClick"></span>
+        </el-tooltip>
+        <el-tooltip
+          :content="isFullScreen ? '退出全屏' : '全屏'"
+          :enterable="false"
+          placement="bottom"
+        >
+          <span
+            class="iconfont"
+            :class="isFullScreen ? 'icon-sami-select' : 'icon-full-screen'"
+            @click="toggleFullscreen"
+          ></span>
+        </el-tooltip>
       </div>
       <div class="history-wrapper">
-        <span class="iconfont icon-arrow-lift" @click="$router.go(-1)"></span>
-        <span class="iconfont icon-arrow-right" @click="$router.go(1)"></span>
+        <el-tooltip content="后退一步" :enterable="false" placement="bottom">
+          <span class="iconfont icon-arrow-lift" @click="$router.go(-1)"></span>
+        </el-tooltip>
+        <el-tooltip content="前进一步" :enterable="false" placement="bottom">
+          <span class="iconfont icon-arrow-right" @click="$router.go(1)"></span>
+        </el-tooltip>
       </div>
     </div>
     <div class="right-box">
