@@ -1,6 +1,9 @@
 import Vue from "vue";
 import App from "@/App.vue";
+// 导入路由
 import router from "@/router";
+// 导入Vuex
+import store from '@/store'
 
 Vue.config.productionTip = false;
 
@@ -53,5 +56,7 @@ Vue.filter("dateFormat", function(originVal) {
 new Vue({
   // 将路由挂载到Vue实例上
   router, // router：router
+  // 将Vuex挂载到Vue实例上
+  store, // store：store
   render: (h) => h(App),
 }).$mount("#app");

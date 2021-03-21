@@ -33,7 +33,7 @@
         <input
           type="text"
           autocomplete="off"
-          placeholder="搜索"
+          placeholder="按回车或者点击左侧图标搜索"
           v-model="inputValue"
           @keyup.enter="toResult"
           class="el-input__inner"
@@ -178,6 +178,7 @@ this.$router.push('/result') // // 携带数据 // // this.$router.push("/result
         position: absolute;
         display: inline-block;
         margin-right: 10px;
+        cursor: pointer;
       }
     }
   }

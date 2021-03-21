@@ -44,21 +44,29 @@
   </div>
 </template>
 <script>
-// // 发现音乐组件
-// import discovery from './03.discovery.vue'
+import { mapState, } from 'vuex'
 export default {
   name: "index",
   data() {
     return {
-      musicUrl: "",
+      // musicUrl: "",
+      ...mapState(['musicUrl'])
     };
-  },
+  }
+};
+// export default {
+//   name: "index",
+//   data() {
+//     return {
+//       musicUrl: "",
+//     };
+//   },
   // 注册组件
   //   components: {
   //     // 发现音乐组件
   //     discovery, // discovery: discovery可省略
   //   }
-};
+// };
 </script>
 <style lang="less" scoped>
 .index-container {
